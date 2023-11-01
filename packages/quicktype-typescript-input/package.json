@@ -14,7 +14,7 @@
     "dependencies": {
         "quicktype-core": "file:../quicktype-core",
         "typescript": "^5.2.2",
-        "@mark.probst/typescript-json-schema": "https://github.com/dinmo-io/typescript-json-schema"
+        "@mark.probst/typescript-json-schema": "https://github.com/dinmo-io/typescript-json-schema#dinmo_fix"
     },
     "devDependencies": {
         "@types/node": "18.14.0",
