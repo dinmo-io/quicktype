@@ -13,7 +13,7 @@
     },
     "dependencies": {
         "quicktype-core": "https://github.com/dinmo-io/quicktype#dinmo_fix",
-        "typescript": "^5.2.2",
+        "typescript": "^5.1.6",
         "@mark.probst/typescript-json-schema": "https://github.com/dinmo-io/typescript-json-schema#dinmo_fix"
     },
     "devDependencies": {
