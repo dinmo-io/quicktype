@@ -70,6 +70,8 @@
     "files": [
         "dist"
     ],
-    "bin": "dist/index.js",
+    "bin": {
+      "quicktype": "dist/index.js"
+    },
     "packageManager": "yarn@4.0.2"
 }
