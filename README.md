@@ -129,10 +129,10 @@ quicktype pokedex.ts -o src/ios/models.swift
 
 ### Calling `quicktype` from JavaScript
 
-You can use `quicktype` as a JavaScript function within `node` or browsers. First add the `quicktype-core` package:
+You can use `quicktype` as a JavaScript function within `node` or browsers. First add the `@quicktype/core` package:
 
 ```bash
-$ npm install quicktype-core
+$ npm install @quicktype/core
 ```
 
 In general, first you create an `InputData` value with one or more JSON samples, JSON schemas, TypeScript sources, or other supported input types. Then you call `quicktype`, passing that `InputData` value and any options you want.
@@ -144,7 +144,7 @@ import {
     jsonInputForTargetLanguage,
     JSONSchemaInput,
     FetchingJSONSchemaStore
-} from "quicktype-core";
+} from "@quicktype/core";
 
 async function quicktypeJSON(targetLanguage, typeName, jsonString) {
     const jsonInput = jsonInputForTargetLanguage(targetLanguage);
@@ -193,7 +193,7 @@ async function main() {
 main();
 ```
 
-The argument to `quicktype` is a complex object with many optional properties. [Explore its definition](https://github.com/quicktype/quicktype/blob/master/packages/quicktype-core/src/Run.ts#L637) to understand what options are allowed.
+The argument to `quicktype` is a complex object with many optional properties. [Explore its definition](https://github.com/quicktype/quicktype/blob/master/packages/@quicktype/core/src/Run.ts#L637) to understand what options are allowed.
 
 ## Contributing
 

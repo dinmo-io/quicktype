@@ -26,7 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.schemaForTypeScriptSources = void 0;
 const ts = __importStar(require("typescript"));
 const typescript_json_schema_1 = require("@mark.probst/typescript-json-schema");
-const quicktype_core_1 = require("quicktype-core");
+const core_1 = require("@quicktype/core");
 const path = __importStar(require("path"));
 const settings = {
     required: true,
@@ -97,7 +97,7 @@ function schemaForTypeScriptSources(sourceFileNames) {
     const diagnostics = ts.getPreEmitDiagnostics(program);
     const error = diagnostics.find(d => d.category === ts.DiagnosticCategory.Error);
     if (error !== undefined) {
-        return (0, quicktype_core_1.messageError)("TypeScriptCompilerError", {
+        return (0, core_1.messageError)("TypeScriptCompilerError", {
             message: ts.flattenDiagnosticMessageText(error.messageText, "\n")
         });
     }
@@ -118,7 +118,7 @@ function schemaForTypeScriptSources(sourceFileNames) {
             if (matches === null) {
                 continue;
             }
-            const index = (0, quicktype_core_1.defined)(matches.index);
+            const index = (0, core_1.defined)(matches.index);
             definition.description = description.slice(0, index) + description.slice(index + matches[0].length);
             uris.push(`#/definitions/${name}`);
             if (topLevelName === undefined) {

@@ -12,7 +12,7 @@ Several pieces need to be implemented to add a new transformed string type:
 
 1.  `TransformedStringTypeTargets` have to be added for the new type kind in the object `transformedStringTypeTargetTypeKinds` in `Type.ts`. The property names of that object are the internal primitive type names. Adding a new property automatically adds a new type.
 
-2.  `inferTransformedStringTypeKindForString` in `StringTypes.ts` can optionally be amended to automatically infer the new transformed type from a given string in JSON input. If this isn't done, the only way to use the new type is through JSON Schema. If it is done, a CLI option to turn it off has to be added. This is currently still more complicated than it needs to be, since it also involves changing the options to `quicktype-core`.
+2.  `inferTransformedStringTypeKindForString` in `StringTypes.ts` can optionally be amended to automatically infer the new transformed type from a given string in JSON input. If this isn't done, the only way to use the new type is through JSON Schema. If it is done, a CLI option to turn it off has to be added. This is currently still more complicated than it needs to be, since it also involves changing the options to `@quicktype/core`.
 
 3.  The target languages that should support the new type have to be amended. Currently C# is the only one that allows this easily. See `CSharp.ts` and search for `date-time`.
 

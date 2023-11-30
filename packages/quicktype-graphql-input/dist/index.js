@@ -36,17 +36,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GraphQLInput = void 0;
 const graphql = __importStar(require("graphql/language"));
 const collection_utils_1 = require("collection-utils");
-const quicktype_core_1 = require("quicktype-core");
+const core_1 = require("@quicktype/core");
 const GraphQLSchema_1 = require("./GraphQLSchema");
 function getField(t, name) {
     if (!t.fields)
-        return (0, quicktype_core_1.panic)(`Required field ${name} in type ${t.name} which doesn't have fields.`);
+        return (0, core_1.panic)(`Required field ${name} in type ${t.name} which doesn't have fields.`);
     for (const f of t.fields) {
         if (f.name === name) {
             return f;
         }
     }
-    return (0, quicktype_core_1.panic)(`Required field ${name} not defined on type ${t.name}.`);
+    return (0, core_1.panic)(`Required field ${name} not defined on type ${t.name}.`);
 }
 function makeNames(name, fieldName, containingTypeName) {
     const alternatives = [];
@@ -56,15 +56,15 @@ function makeNames(name, fieldName, containingTypeName) {
         alternatives.push(`${containingTypeName}_${name}`);
     if (fieldName && containingTypeName)
         alternatives.push(`${containingTypeName}_${fieldName}`);
-    return quicktype_core_1.namesTypeAttributeKind.makeAttributes(quicktype_core_1.TypeNames.make(new Set([name]), new Set(alternatives), false));
+    return core_1.namesTypeAttributeKind.makeAttributes(core_1.TypeNames.make(new Set([name]), new Set(alternatives), false));
 }
 function makeNullable(builder, tref, name, fieldName, containingTypeName) {
     const typeNames = makeNames(name, fieldName, containingTypeName);
-    const t = (0, quicktype_core_1.derefTypeRef)(tref, builder.typeGraph);
-    if (!(t instanceof quicktype_core_1.UnionType)) {
+    const t = (0, core_1.derefTypeRef)(tref, builder.typeGraph);
+    if (!(t instanceof core_1.UnionType)) {
         return builder.getUnionType(typeNames, new Set([tref, builder.getPrimitiveType("null")]));
     }
-    const [maybeNull, nonNulls] = (0, quicktype_core_1.removeNullFromUnion)(t);
+    const [maybeNull, nonNulls] = (0, core_1.removeNullFromUnion)(t);
     if (maybeNull)
         return tref;
     return builder.getUnionType(typeNames, (0, collection_utils_1.setMap)(nonNulls, nn => nn.typeRef).add(builder.getPrimitiveType("null")));
@@ -76,18 +76,18 @@ function makeNullable(builder, tref, name, fieldName, containingTypeName) {
 // (and the null) might be left unreachable in the graph.  Provenance checking
 // won't work in this case, which is why it's disabled in testing for GraphQL.
 function removeNull(builder, tref) {
-    const t = (0, quicktype_core_1.derefTypeRef)(tref, builder.typeGraph);
-    if (!(t instanceof quicktype_core_1.UnionType)) {
+    const t = (0, core_1.derefTypeRef)(tref, builder.typeGraph);
+    if (!(t instanceof core_1.UnionType)) {
         return tref;
     }
-    const nonNulls = (0, quicktype_core_1.removeNullFromUnion)(t)[1];
+    const nonNulls = (0, core_1.removeNullFromUnion)(t)[1];
     const first = (0, collection_utils_1.iterableFirst)(nonNulls);
     if (first) {
         if (nonNulls.size === 1)
             return first.typeRef;
         return builder.getUnionType(t.getAttributes(), (0, collection_utils_1.setMap)(nonNulls, nn => nn.typeRef));
     }
-    return (0, quicktype_core_1.panic)("Trying to remove null results in empty union.");
+    return (0, core_1.panic)("Trying to remove null results in empty union.");
 }
 function makeScalar(builder, ft) {
     switch (ft.name) {
@@ -99,7 +99,7 @@ function makeScalar(builder, ft) {
             return builder.getPrimitiveType("double");
         default:
             // FIXME: support ID specifically?
-            return builder.getStringType(quicktype_core_1.emptyTypeAttributes, quicktype_core_1.StringTypes.unrestricted);
+            return builder.getStringType(core_1.emptyTypeAttributes, core_1.StringTypes.unrestricted);
     }
 }
 function hasOptionalDirectives(directives) {
@@ -131,12 +131,12 @@ class GQLQuery {
                 case GraphQLSchema_1.TypeKind.INTERFACE:
                 case GraphQLSchema_1.TypeKind.UNION:
                     if (!fieldNode.selectionSet) {
-                        return (0, quicktype_core_1.panic)("No selection set on object or interface");
+                        return (0, core_1.panic)("No selection set on object or interface");
                     }
                     return makeNullable(builder, this.makeIRTypeFromSelectionSet(builder, fieldNode.selectionSet, fieldType, fieldNode.name.value, containingTypeName), fieldNode.name.value, null, containingTypeName);
                 case GraphQLSchema_1.TypeKind.ENUM:
                     if (!fieldType.enumValues) {
-                        return (0, quicktype_core_1.panic)("Enum type doesn't have values");
+                        return (0, core_1.panic)("Enum type doesn't have values");
                     }
                     const values = fieldType.enumValues.map(ev => ev.name);
                     let name;
@@ -154,22 +154,22 @@ class GQLQuery {
                     break;
                 case GraphQLSchema_1.TypeKind.INPUT_OBJECT:
                     // FIXME: Support input objects
-                    return (0, quicktype_core_1.panic)("Input objects not supported");
+                    return (0, core_1.panic)("Input objects not supported");
                 case GraphQLSchema_1.TypeKind.LIST:
                     if (!fieldType.ofType) {
-                        return (0, quicktype_core_1.panic)("No type for list");
+                        return (0, core_1.panic)("No type for list");
                     }
                     optional = true;
-                    result = builder.getArrayType(quicktype_core_1.emptyTypeAttributes, this.makeIRTypeFromFieldNode(builder, fieldNode, fieldType.ofType, containingTypeName));
+                    result = builder.getArrayType(core_1.emptyTypeAttributes, this.makeIRTypeFromFieldNode(builder, fieldNode, fieldType.ofType, containingTypeName));
                     break;
                 case GraphQLSchema_1.TypeKind.NON_NULL:
                     if (!fieldType.ofType) {
-                        return (0, quicktype_core_1.panic)("No type for non-null");
+                        return (0, core_1.panic)("No type for non-null");
                     }
                     result = removeNull(builder, this.makeIRTypeFromFieldNode(builder, fieldNode, fieldType.ofType, containingTypeName));
                     break;
                 default:
-                    return (0, quicktype_core_1.assertNever)(fieldType.kind);
+                    return (0, core_1.assertNever)(fieldType.kind);
             }
             if (optional) {
                 result = makeNullable(builder, result, fieldNode.name.value, null, containingTypeName);
@@ -179,17 +179,17 @@ class GQLQuery {
         this.getFragment = (name) => {
             const fragment = this._fragments[name];
             if (!fragment)
-                return (0, quicktype_core_1.panic)(`Fragment ${name} is not defined.`);
+                return (0, core_1.panic)(`Fragment ${name} is not defined.`);
             return fragment;
         };
         this.makeIRTypeFromSelectionSet = (builder, selectionSet, gqlType, containingFieldName, containingTypeName, overrideName) => {
             if (gqlType.kind !== GraphQLSchema_1.TypeKind.OBJECT &&
                 gqlType.kind !== GraphQLSchema_1.TypeKind.INTERFACE &&
                 gqlType.kind !== GraphQLSchema_1.TypeKind.UNION) {
-                return (0, quicktype_core_1.panic)("Type for selection set is not object, interface, or union.");
+                return (0, core_1.panic)("Type for selection set is not object, interface, or union.");
             }
             if (!gqlType.name) {
-                return (0, quicktype_core_1.panic)("Object, interface, or union type doesn't have a name.");
+                return (0, core_1.panic)("Object, interface, or union type doesn't have a name.");
             }
             const nameOrOverride = overrideName || gqlType.name;
             const properties = new Map();
@@ -226,7 +226,7 @@ class GQLQuery {
                         break;
                     }
                     default:
-                        (0, quicktype_core_1.assertNever)(selection);
+                        (0, core_1.assertNever)(selection);
                 }
             }
             return builder.getClassType(makeNames(nameOrOverride, containingFieldName, containingTypeName), properties);
@@ -245,7 +245,7 @@ class GQLQuery {
                 this._fragments[def.name.value] = def;
             }
         }
-        (0, quicktype_core_1.messageAssert)(queries.length >= 1, "GraphQLNoQueriesDefined", {});
+        (0, core_1.messageAssert)(queries.length >= 1, "GraphQLNoQueriesDefined", {});
         this.queries = queries;
     }
     makeType(builder, query, queryName) {
@@ -254,11 +254,11 @@ class GQLQuery {
         }
         if (query.operation === "mutation") {
             if (this._schema.mutationType === undefined) {
-                return (0, quicktype_core_1.panic)("This GraphQL endpoint has no mutations.");
+                return (0, core_1.panic)("This GraphQL endpoint has no mutations.");
             }
             return this.makeIRTypeFromSelectionSet(builder, query.selectionSet, this._schema.mutationType, null, queryName, "data");
         }
-        return (0, quicktype_core_1.panic)(`Unknown query operation type: "${query.operation}"`);
+        return (0, core_1.panic)(`Unknown query operation type: "${query.operation}"`);
     }
 }
 class GQLSchemaFromJSON {
@@ -307,11 +307,11 @@ class GQLSchemaFromJSON {
             if (t.name) {
                 const namedType = this.types[t.name];
                 if (!namedType)
-                    return (0, quicktype_core_1.panic)(`Type ${t.name} not found`);
+                    return (0, core_1.panic)(`Type ${t.name} not found`);
                 return namedType;
             }
             if (!t.ofType)
-                return (0, quicktype_core_1.panic)(`Type of kind ${t.kind} has neither name nor ofType`);
+                return (0, core_1.panic)(`Type of kind ${t.kind} has neither name nor ofType`);
             const type = {
                 kind: t.kind,
                 description: t.description,
@@ -322,23 +322,23 @@ class GQLSchemaFromJSON {
         };
         const schema = json.data;
         if (schema.__schema.queryType.name === null) {
-            return (0, quicktype_core_1.panic)("Query type doesn't have a name.");
+            return (0, core_1.panic)("Query type doesn't have a name.");
         }
         for (const t of schema.__schema.types) {
             if (!t.name)
-                return (0, quicktype_core_1.panic)("No top-level type name given");
+                return (0, core_1.panic)("No top-level type name given");
             this.types[t.name] = { kind: t.kind, name: t.name, description: t.description };
         }
         for (const t of schema.__schema.types) {
             if (!t.name)
-                return (0, quicktype_core_1.panic)("This cannot happen");
+                return (0, core_1.panic)("This cannot happen");
             const type = this.types[t.name];
             this.addTypeFields(type, t);
             // console.log(`type ${type.name} is ${type.kind}`);
         }
         const queryType = this.types[schema.__schema.queryType.name];
         if (queryType === undefined) {
-            return (0, quicktype_core_1.panic)("Query type not found.");
+            return (0, core_1.panic)("Query type not found.");
         }
         // console.log(`query type ${queryType.name} is ${queryType.kind}`);
         this.queryType = queryType;
@@ -346,11 +346,11 @@ class GQLSchemaFromJSON {
             return;
         }
         if (schema.__schema.mutationType.name === null) {
-            return (0, quicktype_core_1.panic)("Mutation type doesn't have a name.");
+            return (0, core_1.panic)("Mutation type doesn't have a name.");
         }
         const mutationType = this.types[schema.__schema.mutationType.name];
         if (mutationType === undefined) {
-            return (0, quicktype_core_1.panic)("Mutation type not found.");
+            return (0, core_1.panic)("Mutation type not found.");
         }
         this.mutationType = mutationType;
     }
@@ -362,15 +362,15 @@ function makeGraphQLQueryTypes(topLevelName, builder, json, queryString) {
     for (const odn of query.queries) {
         const queryName = odn.name ? odn.name.value : topLevelName;
         if (types.has(queryName)) {
-            return (0, quicktype_core_1.panic)(`Duplicate query name ${queryName}`);
+            return (0, core_1.panic)(`Duplicate query name ${queryName}`);
         }
         const dataType = query.makeType(builder, odn, queryName);
-        const dataOrNullType = builder.getUnionType(quicktype_core_1.emptyTypeAttributes, new Set([dataType, builder.getPrimitiveType("null")]));
-        const errorType = builder.getClassType(quicktype_core_1.namesTypeAttributeKind.makeAttributes(quicktype_core_1.TypeNames.make(new Set(["error"]), new Set(["graphQLError"]), false)), (0, collection_utils_1.mapFromObject)({
-            message: builder.makeClassProperty(builder.getStringType(quicktype_core_1.emptyTypeAttributes, quicktype_core_1.StringTypes.unrestricted), false)
+        const dataOrNullType = builder.getUnionType(core_1.emptyTypeAttributes, new Set([dataType, builder.getPrimitiveType("null")]));
+        const errorType = builder.getClassType(core_1.namesTypeAttributeKind.makeAttributes(core_1.TypeNames.make(new Set(["error"]), new Set(["graphQLError"]), false)), (0, collection_utils_1.mapFromObject)({
+            message: builder.makeClassProperty(builder.getStringType(core_1.emptyTypeAttributes, core_1.StringTypes.unrestricted), false)
         }));
-        const errorArray = builder.getArrayType(quicktype_core_1.namesTypeAttributeKind.makeAttributes(quicktype_core_1.TypeNames.make(new Set(["errors"]), new Set(["graphQLErrors"]), false)), errorType);
-        const t = builder.getClassType((0, quicktype_core_1.makeNamesTypeAttributes)(queryName, false), (0, collection_utils_1.mapFromObject)({
+        const errorArray = builder.getArrayType(core_1.namesTypeAttributeKind.makeAttributes(core_1.TypeNames.make(new Set(["errors"]), new Set(["graphQLErrors"]), false)), errorType);
+        const t = builder.getClassType((0, core_1.makeNamesTypeAttributes)(queryName, false), (0, collection_utils_1.mapFromObject)({
             data: builder.makeClassProperty(dataOrNullType, false),
             errors: builder.makeClassProperty(errorArray, true)
         }));

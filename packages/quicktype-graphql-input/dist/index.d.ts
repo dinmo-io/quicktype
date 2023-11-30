@@ -1,4 +1,4 @@
-import { TypeBuilder, Input, RunContext } from "quicktype-core";
+import { TypeBuilder, Input, RunContext } from "@quicktype/core";
 export type GraphQLSourceData = {
     name: string;
     schema: any;

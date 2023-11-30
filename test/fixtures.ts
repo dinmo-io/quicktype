@@ -23,7 +23,7 @@ import {
     callAndExpectFailure
 } from "./utils";
 import * as languages from "./languages";
-import { RendererOptions } from "quicktype-core";
+import { RendererOptions } from "@quicktype/core";
 import { mustNotHappen, defined } from "../packages/quicktype-core/dist/support/Support";
 import { DefaultDateTimeRecognizer } from "../packages/quicktype-core/dist/DateTime";
 

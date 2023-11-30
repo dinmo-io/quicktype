@@ -64,7 +64,7 @@ class JavaTargetLanguage extends TargetLanguage_1.TargetLanguage {
 }
 exports.JavaTargetLanguage = JavaTargetLanguage;
 const javaKeywords = [
-    "_",
+    "_", // as of release 9, '_' is a keyword, and may not be used as an identifier
     "Object",
     "Class",
     "System",

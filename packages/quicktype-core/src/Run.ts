@@ -152,7 +152,7 @@ export type NonInferenceOptions = {
     checkProvenance: boolean;
     /**
      * Print type reconstitution debug information to the console.  You'll only ever need this if
-     * you're working deep inside quicktype-core.
+     * you're working deep inside @quicktype/core.
      */
     debugPrintReconstitution: boolean;
     /**

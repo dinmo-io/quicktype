@@ -1,5 +1,5 @@
 {
-    "name": "quicktype",
+    "name": "@quicktype/cli",
     "version": "23.0.0",
     "license": "Apache-2.0",
     "main": "dist/index.js",
@@ -13,7 +13,7 @@
         "build": "npm run build --workspaces --if-present && tsc",
         "test": "script/test",
         "start": "script/watch",
-        "clean": "rm -rf dist node_modules *~ packages/*/{dist,node_modules}",
+        "clean": "rm -rf dist node_modules packages/*/{dist,node_modules}",
         "debug": "node --inspect-brk --max-old-space-size=4096 ./dist/index.js"
     },
     "workspaces": [
@@ -23,6 +23,10 @@
     ],
     "dependencies": {
         "@glideapps/ts-necessities": "^2.1.3",
+        "@quicktype/core": "*",
+        "@quicktype/graphql-input": "*",
+        "@quicktype/typescript-input": "*",
+        "@types/node": "^20.10.1",
         "chalk": "^4.1.2",
         "collection-utils": "^1.0.1",
         "command-line-args": "^5.2.1",
@@ -31,24 +35,27 @@
         "graphql": "^0.11.7",
         "lodash": "^4.17.21",
         "moment": "^2.29.4",
-        "quicktype-core": "https://github.com/dinmo-io/quicktype#dinmo_fix",
-        "quicktype-graphql-input": "https://github.com/dinmo-io/quicktype#dinmo_fix",
-        "quicktype-typescript-input": "https://github.com/dinmo-io/quicktype#dinmo_fix",
         "readable-stream": "^4.4.2",
         "stream-json": "1.8.0",
         "string-to-stream": "^3.0.1",
-        "typescript": "^5.2.2"
+        "typescript": "^5.2.2",
+        "typescript-json-schema": "*",
+        "wordwrap": "^1.0.0"
     },
     "devDependencies": {
+        "@swc/cli": "^0.1.63",
+        "@swc/core": "^1.3.100",
         "@tsconfig/node18": "^1.0.1",
         "@types/command-line-args": "^5.2.0",
         "@types/command-line-usage": "^5.0.2",
         "@types/graphql": "^0.11.7",
-        "@types/lodash": "^4.14.197",
+        "@types/lodash": "^4.14.202",
+        "@types/readable-stream": "^4.0.9",
         "@types/semver": "^7.5.0",
         "@types/shelljs": "^0.8.12",
         "@types/stream-json": "^1.7.3",
         "@types/urijs": "^1.19.19",
+        "@types/wordwrap": "^1",
         "ajv": "^8.12.0",
         "deep-equal": "^2.2.2",
         "exit": "^0.1.2",
@@ -63,5 +70,6 @@
     "files": [
         "dist"
     ],
-    "bin": "dist/index.js"
+    "bin": "dist/index.js",
+    "packageManager": "yarn@4.0.2"
 }

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "sourceMaps": true,
+  "module":{
+      "type": "commonjs",
+    },
+
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": false,
+      "decorators": true
+    },
+    "baseUrl": ".",
+  },
+  "exclude":[
+    "node_modules",
+    "example",
+    "test/programs",
+    "dist"
+ ]
+}

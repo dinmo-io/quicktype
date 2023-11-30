@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import * as fs from "fs";
-import * as path from "path";
+import fs from "fs";
+import path from "path";
 import * as _ from "lodash";
 import { Readable } from "readable-stream";
 import { hasOwnProperty, definedMap, withDefault, mapFromObject, mapMap } from "collection-utils";
@@ -38,23 +38,24 @@ import {
     readableFromFileOrURL,
     readFromFileOrURL,
     FetchingJSONSchemaStore
-} from "quicktype-core";
-import { schemaForTypeScriptSources } from "quicktype-typescript-input";
-import { GraphQLInput } from "quicktype-graphql-input";
+} from "@quicktype/core";
+import { schemaForTypeScriptSources } from "@quicktype/typescript-input";
+import { GraphQLInput } from "@quicktype/graphql-input";
 
 import { urlsFromURLGrammar } from "./URLGrammar";
 import { introspectServer } from "./GraphQLIntrospection";
 import { JSONTypeSource, TypeSource, GraphQLTypeSource, SchemaTypeSource } from "./TypeSource";
 import { CompressedJSONFromStream } from "./CompressedJSONFromStream";
 
-const stringToStream = require("string-to-stream");
+import * as stringToStream from "string-to-stream";
 
 import commandLineArgs from "command-line-args";
 import getUsage from "command-line-usage";
 import chalk from "chalk";
-const wordWrap: (s: string) => string = require("wordwrap")(90);
+import * as wrapper from "wordwrap";
+const wordWrap = wrapper.default(90);
 
-const packageJSON = require("../package.json");
+import packageJSON from "../package.json";
 
 export interface CLIOptions {
     lang: string;
@@ -305,7 +306,7 @@ function inferCLIOptions(opts: Partial<CLIOptions>, targetLanguage: TargetLangua
 
 function makeLangTypeLabel(targetLanguages: TargetLanguage[]): string {
     assert(targetLanguages.length > 0, "Must have at least one target language");
-    return targetLanguages.map(r => _.minBy(r.names, s => s.length)).join("|");
+    return targetLanguages.map(r => _.minBy(r.names, (s: any) => s.length)).join("|");
 }
 
 function negatedInferenceFlagName(name: string): string {
@@ -318,7 +319,7 @@ function negatedInferenceFlagName(name: string): string {
 
 function dashedFromCamelCase(name: string): string {
     return splitIntoWords(name)
-        .map(w => w.word.toLowerCase())
+        .map((w: any) => w.word.toLowerCase())
         .join("-");
 }
 
