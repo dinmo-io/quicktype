@@ -42,9 +42,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@glideapps/ts-necessities", "npm:2.1.3"],\
-          ["@quicktype/core", "workspace:packages/quicktype-core"],\
-          ["@quicktype/graphql-input", "workspace:packages/quicktype-graphql-input"],\
-          ["@quicktype/typescript-input", "workspace:packages/quicktype-typescript-input"],\
+          ["@mark.probst/typescript-json-schema", "https://github.com/dinmo-io/typescript-json-schema.git#commit=020e61b60de4eab4ecb5dfb6774b0b00deb296dd"],\
+          ["@quicktype/core", "file:packages/quicktype-core#packages/quicktype-core::hash=70ef32&locator=%40quicktype%2Fcli%40workspace%3A."],\
+          ["@quicktype/graphql-input", "file:packages/quicktype-graphql-input#packages/quicktype-graphql-input::hash=e7a5fc&locator=%40quicktype%2Fcli%40workspace%3A."],\
+          ["@quicktype/typescript-input", "file:packages/quicktype-typescript-input#packages/quicktype-typescript-input::hash=c0a54f&locator=%40quicktype%2Fcli%40workspace%3A."],\
           ["@swc/cli", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:0.1.63"],\
           ["@swc/core", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:1.3.100"],\
           ["@tsconfig/node18", "npm:1.0.3"],\
@@ -78,9 +79,8 @@ const RAW_RUNTIME_STATE =
           ["stream-json", "npm:1.8.0"],\
           ["string-to-stream", "npm:3.0.1"],\
           ["ts-node", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:10.9.1"],\
-          ["tslint", "virtual:f606dc3c8d905ae838420d84f2bd755a2d96a0d3986ba01b7285ee9c31e8221683d718712ebad1b30792e4ca2f515f4da388dc50bd2e79567222a21809d17542#npm:6.1.3"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"],\
-          ["typescript-json-schema", "npm:0.62.0"],\
+          ["tslint", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:6.1.3"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
           ["watch", "npm:0.13.0"],\
           ["wordwrap", "npm:1.0.0"]\
         ],\
@@ -179,17 +179,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@mark.probst/typescript-json-schema", [\
-      ["https://github.com/dinmo-io/typescript-json-schema.git#commit=b0aa554a1029a052b07e4119014e6273eaf122b5", {\
-        "packageLocation": "../../.yarn/berry/cache/@mark.probst-typescript-json-schema-https-bbfa9a50c0-10c0.zip/node_modules/@mark.probst/typescript-json-schema/",\
+      ["https://github.com/dinmo-io/typescript-json-schema.git#commit=020e61b60de4eab4ecb5dfb6774b0b00deb296dd", {\
+        "packageLocation": "../../.yarn/berry/cache/@mark.probst-typescript-json-schema-https-0ae83b1a24-10c0.zip/node_modules/@mark.probst/typescript-json-schema/",\
         "packageDependencies": [\
-          ["@mark.probst/typescript-json-schema", "https://github.com/dinmo-io/typescript-json-schema.git#commit=b0aa554a1029a052b07e4119014e6273eaf122b5"],\
+          ["@mark.probst/typescript-json-schema", "https://github.com/dinmo-io/typescript-json-schema.git#commit=020e61b60de4eab4ecb5dfb6774b0b00deb296dd"],\
           ["@types/json-schema", "npm:7.0.15"],\
           ["@types/node", "npm:16.18.66"],\
           ["glob", "npm:7.2.3"],\
           ["path-equal", "npm:1.2.5"],\
           ["safe-stable-stringify", "npm:2.4.3"],\
-          ["ts-node", "virtual:bbfa9a50c0141c97abdb30231abcb7ce59a331f6ff5f22fa4f682ae4b36a44d68200febaf5a68cbed57bcd0201ed73634240fa4c864dd1098b21954b26d19de5#npm:10.9.1"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"],\
+          ["ts-node", "virtual:0ae83b1a2445b443a22084d6b8b14c2cce7daad108aa30a091af93e858a7bcfd7f7dc74a52baa94783787e9769de51d895418f18c554c2d7861fbf98d1224e84#npm:10.9.1"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
           ["yargs", "npm:17.7.2"]\
         ],\
         "linkType": "HARD"\
@@ -249,9 +249,10 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@quicktype/cli", "workspace:."],\
           ["@glideapps/ts-necessities", "npm:2.1.3"],\
-          ["@quicktype/core", "workspace:packages/quicktype-core"],\
-          ["@quicktype/graphql-input", "workspace:packages/quicktype-graphql-input"],\
-          ["@quicktype/typescript-input", "workspace:packages/quicktype-typescript-input"],\
+          ["@mark.probst/typescript-json-schema", "https://github.com/dinmo-io/typescript-json-schema.git#commit=020e61b60de4eab4ecb5dfb6774b0b00deb296dd"],\
+          ["@quicktype/core", "file:packages/quicktype-core#packages/quicktype-core::hash=70ef32&locator=%40quicktype%2Fcli%40workspace%3A."],\
+          ["@quicktype/graphql-input", "file:packages/quicktype-graphql-input#packages/quicktype-graphql-input::hash=e7a5fc&locator=%40quicktype%2Fcli%40workspace%3A."],\
+          ["@quicktype/typescript-input", "file:packages/quicktype-typescript-input#packages/quicktype-typescript-input::hash=c0a54f&locator=%40quicktype%2Fcli%40workspace%3A."],\
           ["@swc/cli", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:0.1.63"],\
           ["@swc/core", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:1.3.100"],\
           ["@tsconfig/node18", "npm:1.0.3"],\
@@ -285,9 +286,8 @@ const RAW_RUNTIME_STATE =
           ["stream-json", "npm:1.8.0"],\
           ["string-to-stream", "npm:3.0.1"],\
           ["ts-node", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:10.9.1"],\
-          ["tslint", "virtual:f606dc3c8d905ae838420d84f2bd755a2d96a0d3986ba01b7285ee9c31e8221683d718712ebad1b30792e4ca2f515f4da388dc50bd2e79567222a21809d17542#npm:6.1.3"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"],\
-          ["typescript-json-schema", "npm:0.62.0"],\
+          ["tslint", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:6.1.3"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
           ["watch", "npm:0.13.0"],\
           ["wordwrap", "npm:1.0.0"]\
         ],\
@@ -295,10 +295,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@quicktype/core", [\
-      ["file:../quicktype-core#../quicktype-core::hash=981cfe&locator=%40quicktype%2Fgraphql-input%40workspace%3Apackages%2Fquicktype-graphql-input", {\
-        "packageLocation": "../../.yarn/berry/cache/@quicktype-core-file-4a989d6d5a-10c0.zip/node_modules/@quicktype/core/",\
+      ["file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Fgraphql-input%40file%3Apackages%2Fquicktype-graphql-input%23packages%2Fquicktype-graphql-input%3A%3Ahash%3De7a5fc%26locator%3D%2540quicktype%252Fcli%2540workspace%253A.", {\
+        "packageLocation": "../../.yarn/berry/cache/@quicktype-core-file-66ecfe3507-10c0.zip/node_modules/@quicktype/core/",\
         "packageDependencies": [\
-          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=981cfe&locator=%40quicktype%2Fgraphql-input%40workspace%3Apackages%2Fquicktype-graphql-input"],\
+          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Fgraphql-input%40file%3Apackages%2Fquicktype-graphql-input%23packages%2Fquicktype-graphql-input%3A%3Ahash%3De7a5fc%26locator%3D%2540quicktype%252Fcli%2540workspace%253A."],\
           ["@glideapps/ts-necessities", "npm:2.1.3"],\
           ["@types/urijs", "npm:1.19.25"],\
           ["browser-or-node", "npm:2.1.1"],\
@@ -317,10 +317,76 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["file:../quicktype-core#../quicktype-core::hash=981cfe&locator=%40quicktype%2Ftypescript-input%40workspace%3Apackages%2Fquicktype-typescript-input", {\
-        "packageLocation": "../../.yarn/berry/cache/@quicktype-core-file-256b052b74-10c0.zip/node_modules/@quicktype/core/",\
+      ["file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Fgraphql-input%40workspace%3Apackages%2Fquicktype-graphql-input", {\
+        "packageLocation": "../../.yarn/berry/cache/@quicktype-core-file-c87ef890f1-10c0.zip/node_modules/@quicktype/core/",\
         "packageDependencies": [\
-          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=981cfe&locator=%40quicktype%2Ftypescript-input%40workspace%3Apackages%2Fquicktype-typescript-input"],\
+          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Fgraphql-input%40workspace%3Apackages%2Fquicktype-graphql-input"],\
+          ["@glideapps/ts-necessities", "npm:2.1.3"],\
+          ["@types/urijs", "npm:1.19.25"],\
+          ["browser-or-node", "npm:2.1.1"],\
+          ["collection-utils", "npm:1.0.1"],\
+          ["cross-fetch", "npm:4.0.0"],\
+          ["is-url", "npm:1.2.4"],\
+          ["js-base64", "npm:3.7.5"],\
+          ["lodash", "npm:4.17.21"],\
+          ["pako", "npm:1.0.11"],\
+          ["pluralize", "npm:8.0.0"],\
+          ["readable-stream", "npm:4.4.2"],\
+          ["unicode-properties", "npm:1.4.1"],\
+          ["urijs", "npm:1.19.11"],\
+          ["wordwrap", "npm:1.0.0"],\
+          ["yaml", "npm:2.3.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Ftypescript-input%40file%3Apackages%2Fquicktype-typescript-input%23packages%2Fquicktype-typescript-input%3A%3Ahash%3Dc0a54f%26locator%3D%2540quicktype%252Fcli%2540workspace%253A.", {\
+        "packageLocation": "../../.yarn/berry/cache/@quicktype-core-file-811d33e961-10c0.zip/node_modules/@quicktype/core/",\
+        "packageDependencies": [\
+          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Ftypescript-input%40file%3Apackages%2Fquicktype-typescript-input%23packages%2Fquicktype-typescript-input%3A%3Ahash%3Dc0a54f%26locator%3D%2540quicktype%252Fcli%2540workspace%253A."],\
+          ["@glideapps/ts-necessities", "npm:2.1.3"],\
+          ["@types/urijs", "npm:1.19.25"],\
+          ["browser-or-node", "npm:2.1.1"],\
+          ["collection-utils", "npm:1.0.1"],\
+          ["cross-fetch", "npm:4.0.0"],\
+          ["is-url", "npm:1.2.4"],\
+          ["js-base64", "npm:3.7.5"],\
+          ["lodash", "npm:4.17.21"],\
+          ["pako", "npm:1.0.11"],\
+          ["pluralize", "npm:8.0.0"],\
+          ["readable-stream", "npm:4.4.2"],\
+          ["unicode-properties", "npm:1.4.1"],\
+          ["urijs", "npm:1.19.11"],\
+          ["wordwrap", "npm:1.0.0"],\
+          ["yaml", "npm:2.3.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Ftypescript-input%40workspace%3Apackages%2Fquicktype-typescript-input", {\
+        "packageLocation": "../../.yarn/berry/cache/@quicktype-core-file-308101ce12-10c0.zip/node_modules/@quicktype/core/",\
+        "packageDependencies": [\
+          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Ftypescript-input%40workspace%3Apackages%2Fquicktype-typescript-input"],\
+          ["@glideapps/ts-necessities", "npm:2.1.3"],\
+          ["@types/urijs", "npm:1.19.25"],\
+          ["browser-or-node", "npm:2.1.1"],\
+          ["collection-utils", "npm:1.0.1"],\
+          ["cross-fetch", "npm:4.0.0"],\
+          ["is-url", "npm:1.2.4"],\
+          ["js-base64", "npm:3.7.5"],\
+          ["lodash", "npm:4.17.21"],\
+          ["pako", "npm:1.0.11"],\
+          ["pluralize", "npm:8.0.0"],\
+          ["readable-stream", "npm:4.4.2"],\
+          ["unicode-properties", "npm:1.4.1"],\
+          ["urijs", "npm:1.19.11"],\
+          ["wordwrap", "npm:1.0.0"],\
+          ["yaml", "npm:2.3.4"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["file:packages/quicktype-core#packages/quicktype-core::hash=70ef32&locator=%40quicktype%2Fcli%40workspace%3A.", {\
+        "packageLocation": "../../.yarn/berry/cache/@quicktype-core-file-09b0644dca-10c0.zip/node_modules/@quicktype/core/",\
+        "packageDependencies": [\
+          ["@quicktype/core", "file:packages/quicktype-core#packages/quicktype-core::hash=70ef32&locator=%40quicktype%2Fcli%40workspace%3A."],\
           ["@glideapps/ts-necessities", "npm:2.1.3"],\
           ["@types/urijs", "npm:1.19.25"],\
           ["browser-or-node", "npm:2.1.1"],\
@@ -363,8 +429,8 @@ const RAW_RUNTIME_STATE =
           ["pako", "npm:1.0.11"],\
           ["pluralize", "npm:8.0.0"],\
           ["readable-stream", "npm:4.4.2"],\
-          ["tslint", "virtual:f606dc3c8d905ae838420d84f2bd755a2d96a0d3986ba01b7285ee9c31e8221683d718712ebad1b30792e4ca2f515f4da388dc50bd2e79567222a21809d17542#npm:6.1.3"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"],\
+          ["tslint", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:6.1.3"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
           ["unicode-properties", "npm:1.4.1"],\
           ["urijs", "npm:1.19.11"],\
           ["wordwrap", "npm:1.0.0"],\
@@ -374,30 +440,50 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@quicktype/graphql-input", [\
+      ["file:packages/quicktype-graphql-input#packages/quicktype-graphql-input::hash=e7a5fc&locator=%40quicktype%2Fcli%40workspace%3A.", {\
+        "packageLocation": "../../.yarn/berry/cache/@quicktype-graphql-input-file-731b5b919b-10c0.zip/node_modules/@quicktype/graphql-input/",\
+        "packageDependencies": [\
+          ["@quicktype/graphql-input", "file:packages/quicktype-graphql-input#packages/quicktype-graphql-input::hash=e7a5fc&locator=%40quicktype%2Fcli%40workspace%3A."],\
+          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Fgraphql-input%40file%3Apackages%2Fquicktype-graphql-input%23packages%2Fquicktype-graphql-input%3A%3Ahash%3De7a5fc%26locator%3D%2540quicktype%252Fcli%2540workspace%253A."],\
+          ["collection-utils", "npm:1.0.1"],\
+          ["graphql", "npm:0.11.7"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["workspace:packages/quicktype-graphql-input", {\
         "packageLocation": "./packages/quicktype-graphql-input/",\
         "packageDependencies": [\
           ["@quicktype/graphql-input", "workspace:packages/quicktype-graphql-input"],\
-          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=981cfe&locator=%40quicktype%2Fgraphql-input%40workspace%3Apackages%2Fquicktype-graphql-input"],\
+          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Fgraphql-input%40workspace%3Apackages%2Fquicktype-graphql-input"],\
           ["@types/graphql", "npm:0.11.8"],\
           ["@types/node", "npm:18.14.0"],\
           ["collection-utils", "npm:1.0.1"],\
           ["graphql", "npm:0.11.7"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"]\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
         "linkType": "SOFT"\
       }]\
     ]],\
     ["@quicktype/typescript-input", [\
+      ["file:packages/quicktype-typescript-input#packages/quicktype-typescript-input::hash=c0a54f&locator=%40quicktype%2Fcli%40workspace%3A.", {\
+        "packageLocation": "../../.yarn/berry/cache/@quicktype-typescript-input-file-e0c11c2ae2-10c0.zip/node_modules/@quicktype/typescript-input/",\
+        "packageDependencies": [\
+          ["@quicktype/typescript-input", "file:packages/quicktype-typescript-input#packages/quicktype-typescript-input::hash=c0a54f&locator=%40quicktype%2Fcli%40workspace%3A."],\
+          ["@mark.probst/typescript-json-schema", "https://github.com/dinmo-io/typescript-json-schema.git#commit=020e61b60de4eab4ecb5dfb6774b0b00deb296dd"],\
+          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Ftypescript-input%40file%3Apackages%2Fquicktype-typescript-input%23packages%2Fquicktype-typescript-input%3A%3Ahash%3Dc0a54f%26locator%3D%2540quicktype%252Fcli%2540workspace%253A."],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["workspace:packages/quicktype-typescript-input", {\
         "packageLocation": "./packages/quicktype-typescript-input/",\
         "packageDependencies": [\
           ["@quicktype/typescript-input", "workspace:packages/quicktype-typescript-input"],\
-          ["@mark.probst/typescript-json-schema", "https://github.com/dinmo-io/typescript-json-schema.git#commit=b0aa554a1029a052b07e4119014e6273eaf122b5"],\
-          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=981cfe&locator=%40quicktype%2Ftypescript-input%40workspace%3Apackages%2Fquicktype-typescript-input"],\
+          ["@mark.probst/typescript-json-schema", "https://github.com/dinmo-io/typescript-json-schema.git#commit=020e61b60de4eab4ecb5dfb6774b0b00deb296dd"],\
+          ["@quicktype/core", "file:../quicktype-core#../quicktype-core::hash=70ef32&locator=%40quicktype%2Ftypescript-input%40workspace%3Apackages%2Fquicktype-typescript-input"],\
           ["@types/node", "npm:18.14.0"],\
-          ["tslint", "virtual:f606dc3c8d905ae838420d84f2bd755a2d96a0d3986ba01b7285ee9c31e8221683d718712ebad1b30792e4ca2f515f4da388dc50bd2e79567222a21809d17542#npm:6.1.3"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"]\
+          ["tslint", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:6.1.3"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -3353,6 +3439,42 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
+      ["virtual:0ae83b1a2445b443a22084d6b8b14c2cce7daad108aa30a091af93e858a7bcfd7f7dc74a52baa94783787e9769de51d895418f18c554c2d7861fbf98d1224e84#npm:10.9.1", {\
+        "packageLocation": "./.yarn/__virtual__/ts-node-virtual-95c40ba927/3/.yarn/berry/cache/ts-node-npm-10.9.1-6c268be7f4-10c0.zip/node_modules/ts-node/",\
+        "packageDependencies": [\
+          ["ts-node", "virtual:0ae83b1a2445b443a22084d6b8b14c2cce7daad108aa30a091af93e858a7bcfd7f7dc74a52baa94783787e9769de51d895418f18c554c2d7861fbf98d1224e84#npm:10.9.1"],\
+          ["@cspotcode/source-map-support", "npm:0.8.1"],\
+          ["@swc/core", null],\
+          ["@swc/wasm", null],\
+          ["@tsconfig/node10", "npm:1.0.9"],\
+          ["@tsconfig/node12", "npm:1.0.11"],\
+          ["@tsconfig/node14", "npm:1.0.3"],\
+          ["@tsconfig/node16", "npm:1.0.4"],\
+          ["@types/node", "npm:16.18.66"],\
+          ["@types/swc__core", null],\
+          ["@types/swc__wasm", null],\
+          ["@types/typescript", null],\
+          ["acorn", "npm:8.11.2"],\
+          ["acorn-walk", "npm:8.3.0"],\
+          ["arg", "npm:4.1.3"],\
+          ["create-require", "npm:1.1.1"],\
+          ["diff", "npm:4.0.2"],\
+          ["make-error", "npm:1.3.6"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
+          ["v8-compile-cache-lib", "npm:3.0.1"],\
+          ["yn", "npm:3.1.1"]\
+        ],\
+        "packagePeers": [\
+          "@swc/core",\
+          "@swc/wasm",\
+          "@types/node",\
+          "@types/swc__core",\
+          "@types/swc__wasm",\
+          "@types/typescript",\
+          "typescript"\
+        ],\
+        "linkType": "HARD"\
+      }],\
       ["virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:10.9.1", {\
         "packageLocation": "./.yarn/__virtual__/ts-node-virtual-ada489edb4/3/.yarn/berry/cache/ts-node-npm-10.9.1-6c268be7f4-10c0.zip/node_modules/ts-node/",\
         "packageDependencies": [\
@@ -3374,79 +3496,7 @@ const RAW_RUNTIME_STATE =
           ["create-require", "npm:1.1.1"],\
           ["diff", "npm:4.0.2"],\
           ["make-error", "npm:1.3.6"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"],\
-          ["v8-compile-cache-lib", "npm:3.0.1"],\
-          ["yn", "npm:3.1.1"]\
-        ],\
-        "packagePeers": [\
-          "@swc/core",\
-          "@swc/wasm",\
-          "@types/node",\
-          "@types/swc__core",\
-          "@types/swc__wasm",\
-          "@types/typescript",\
-          "typescript"\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["virtual:b38c540e5cbeeb36f6cdaf583b18c5cc34e640d6908d7795a738b726a8e374212bc5fbcbb095ed785f1cae0693819127e1359525cf4ebd0bea119225d0255dea#npm:10.9.1", {\
-        "packageLocation": "./.yarn/__virtual__/ts-node-virtual-5b99da2771/3/.yarn/berry/cache/ts-node-npm-10.9.1-6c268be7f4-10c0.zip/node_modules/ts-node/",\
-        "packageDependencies": [\
-          ["ts-node", "virtual:b38c540e5cbeeb36f6cdaf583b18c5cc34e640d6908d7795a738b726a8e374212bc5fbcbb095ed785f1cae0693819127e1359525cf4ebd0bea119225d0255dea#npm:10.9.1"],\
-          ["@cspotcode/source-map-support", "npm:0.8.1"],\
-          ["@swc/core", null],\
-          ["@swc/wasm", null],\
-          ["@tsconfig/node10", "npm:1.0.9"],\
-          ["@tsconfig/node12", "npm:1.0.11"],\
-          ["@tsconfig/node14", "npm:1.0.3"],\
-          ["@tsconfig/node16", "npm:1.0.4"],\
-          ["@types/node", "npm:16.18.66"],\
-          ["@types/swc__core", null],\
-          ["@types/swc__wasm", null],\
-          ["@types/typescript", null],\
-          ["acorn", "npm:8.11.2"],\
-          ["acorn-walk", "npm:8.3.0"],\
-          ["arg", "npm:4.1.3"],\
-          ["create-require", "npm:1.1.1"],\
-          ["diff", "npm:4.0.2"],\
-          ["make-error", "npm:1.3.6"],\
-          ["typescript", "patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071"],\
-          ["v8-compile-cache-lib", "npm:3.0.1"],\
-          ["yn", "npm:3.1.1"]\
-        ],\
-        "packagePeers": [\
-          "@swc/core",\
-          "@swc/wasm",\
-          "@types/node",\
-          "@types/swc__core",\
-          "@types/swc__wasm",\
-          "@types/typescript",\
-          "typescript"\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["virtual:bbfa9a50c0141c97abdb30231abcb7ce59a331f6ff5f22fa4f682ae4b36a44d68200febaf5a68cbed57bcd0201ed73634240fa4c864dd1098b21954b26d19de5#npm:10.9.1", {\
-        "packageLocation": "./.yarn/__virtual__/ts-node-virtual-0e584c8e73/3/.yarn/berry/cache/ts-node-npm-10.9.1-6c268be7f4-10c0.zip/node_modules/ts-node/",\
-        "packageDependencies": [\
-          ["ts-node", "virtual:bbfa9a50c0141c97abdb30231abcb7ce59a331f6ff5f22fa4f682ae4b36a44d68200febaf5a68cbed57bcd0201ed73634240fa4c864dd1098b21954b26d19de5#npm:10.9.1"],\
-          ["@cspotcode/source-map-support", "npm:0.8.1"],\
-          ["@swc/core", null],\
-          ["@swc/wasm", null],\
-          ["@tsconfig/node10", "npm:1.0.9"],\
-          ["@tsconfig/node12", "npm:1.0.11"],\
-          ["@tsconfig/node14", "npm:1.0.3"],\
-          ["@tsconfig/node16", "npm:1.0.4"],\
-          ["@types/node", "npm:16.18.66"],\
-          ["@types/swc__core", null],\
-          ["@types/swc__wasm", null],\
-          ["@types/typescript", null],\
-          ["acorn", "npm:8.11.2"],\
-          ["acorn-walk", "npm:8.3.0"],\
-          ["arg", "npm:4.1.3"],\
-          ["create-require", "npm:1.1.1"],\
-          ["diff", "npm:4.0.2"],\
-          ["make-error", "npm:1.3.6"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"],\
           ["v8-compile-cache-lib", "npm:3.0.1"],\
           ["yn", "npm:3.1.1"]\
         ],\
@@ -3479,10 +3529,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:f606dc3c8d905ae838420d84f2bd755a2d96a0d3986ba01b7285ee9c31e8221683d718712ebad1b30792e4ca2f515f4da388dc50bd2e79567222a21809d17542#npm:6.1.3", {\
-        "packageLocation": "./.yarn/__virtual__/tslint-virtual-124d39a787/3/.yarn/berry/cache/tslint-npm-6.1.3-d90825fcd4-10c0.zip/node_modules/tslint/",\
+      ["virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:6.1.3", {\
+        "packageLocation": "./.yarn/__virtual__/tslint-virtual-5caf22747d/3/.yarn/berry/cache/tslint-npm-6.1.3-d90825fcd4-10c0.zip/node_modules/tslint/",\
         "packageDependencies": [\
-          ["tslint", "virtual:f606dc3c8d905ae838420d84f2bd755a2d96a0d3986ba01b7285ee9c31e8221683d718712ebad1b30792e4ca2f515f4da388dc50bd2e79567222a21809d17542#npm:6.1.3"],\
+          ["tslint", "virtual:5f23d7e80bb605c809311bac8ddbf74193d12c49da6d1ebaed30e015c14ced4dc965ae511bc07052eda52f3070b3b3836ba0da3c03ef9d1fa9e9e6579bc8ac0a#npm:6.1.3"],\
           ["@babel/code-frame", "npm:7.23.5"],\
           ["@types/typescript", null],\
           ["builtin-modules", "npm:1.1.1"],\
@@ -3496,8 +3546,8 @@ const RAW_RUNTIME_STATE =
           ["resolve", "patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"],\
           ["semver", "npm:5.7.2"],\
           ["tslib", "npm:1.14.1"],\
-          ["tsutils", "virtual:124d39a7873a9a16fc95b1596ad5473053aaacf60af8650262ddf4cb1066648b8d4887a50860da166bb857a57c166a562b0a4a9a7d6013e90b2d7cc15723ddab#npm:2.29.0"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"]\
+          ["tsutils", "virtual:5caf22747d326247ada165387c4151241201ccdc6c2b94a3df24b56bd8d8ce19123ebe6a175299a0e6ca769fda16aff60c550e0ccd6d38e6214bfd5f4c35fb90#npm:2.29.0"],\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -3514,13 +3564,13 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:124d39a7873a9a16fc95b1596ad5473053aaacf60af8650262ddf4cb1066648b8d4887a50860da166bb857a57c166a562b0a4a9a7d6013e90b2d7cc15723ddab#npm:2.29.0", {\
-        "packageLocation": "./.yarn/__virtual__/tsutils-virtual-f8a34c6723/3/.yarn/berry/cache/tsutils-npm-2.29.0-a46b62a46d-10c0.zip/node_modules/tsutils/",\
+      ["virtual:5caf22747d326247ada165387c4151241201ccdc6c2b94a3df24b56bd8d8ce19123ebe6a175299a0e6ca769fda16aff60c550e0ccd6d38e6214bfd5f4c35fb90#npm:2.29.0", {\
+        "packageLocation": "./.yarn/__virtual__/tsutils-virtual-7b701989eb/3/.yarn/berry/cache/tsutils-npm-2.29.0-a46b62a46d-10c0.zip/node_modules/tsutils/",\
         "packageDependencies": [\
-          ["tsutils", "virtual:124d39a7873a9a16fc95b1596ad5473053aaacf60af8650262ddf4cb1066648b8d4887a50860da166bb857a57c166a562b0a4a9a7d6013e90b2d7cc15723ddab#npm:2.29.0"],\
+          ["tsutils", "virtual:5caf22747d326247ada165387c4151241201ccdc6c2b94a3df24b56bd8d8ce19123ebe6a175299a0e6ca769fda16aff60c550e0ccd6d38e6214bfd5f4c35fb90#npm:2.29.0"],\
           ["@types/typescript", null],\
           ["tslib", "npm:1.14.1"],\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"]\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
         "packagePeers": [\
           "@types/typescript",\
@@ -3530,34 +3580,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["typescript", [\
-      ["patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071", {\
-        "packageLocation": "../../.yarn/berry/cache/typescript-patch-97a611e52a-10c0.zip/node_modules/typescript/",\
+      ["patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441", {\
+        "packageLocation": "../../.yarn/berry/cache/typescript-patch-3914634c3a-10c0.zip/node_modules/typescript/",\
         "packageDependencies": [\
-          ["typescript", "patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7", {\
-        "packageLocation": "../../.yarn/berry/cache/typescript-patch-71fdfda6a2-10c0.zip/node_modules/typescript/",\
-        "packageDependencies": [\
-          ["typescript", "patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["typescript-json-schema", [\
-      ["npm:0.62.0", {\
-        "packageLocation": "../../.yarn/berry/cache/typescript-json-schema-npm-0.62.0-b38c540e5c-10c0.zip/node_modules/typescript-json-schema/",\
-        "packageDependencies": [\
-          ["typescript-json-schema", "npm:0.62.0"],\
-          ["@types/json-schema", "npm:7.0.15"],\
-          ["@types/node", "npm:16.18.66"],\
-          ["glob", "npm:7.2.3"],\
-          ["path-equal", "npm:1.2.5"],\
-          ["safe-stable-stringify", "npm:2.4.3"],\
-          ["ts-node", "virtual:b38c540e5cbeeb36f6cdaf583b18c5cc34e640d6908d7795a738b726a8e374212bc5fbcbb095ed785f1cae0693819127e1359525cf4ebd0bea119225d0255dea#npm:10.9.1"],\
-          ["typescript", "patch:typescript@npm%3A5.1.6#optional!builtin<compat/typescript>::version=5.1.6&hash=5da071"],\
-          ["yargs", "npm:17.7.2"]\
+          ["typescript", "patch:typescript@npm%3A5.2.2#optional!builtin<compat/typescript>::version=5.2.2&hash=f3b441"]\
         ],\
         "linkType": "HARD"\
       }]\

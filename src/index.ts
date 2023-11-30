@@ -47,8 +47,6 @@ import { introspectServer } from "./GraphQLIntrospection";
 import { JSONTypeSource, TypeSource, GraphQLTypeSource, SchemaTypeSource } from "./TypeSource";
 import { CompressedJSONFromStream } from "./CompressedJSONFromStream";
 
-import * as stringToStream from "string-to-stream";
-
 import commandLineArgs from "command-line-args";
 import getUsage from "command-line-usage";
 import chalk from "chalk";
@@ -738,7 +736,13 @@ async function makeInputData(
 }
 
 function stringSourceDataToStreamSourceData(src: JSONSourceData<string>): JSONSourceData<Readable> {
-    return { name: src.name, description: src.description, samples: src.samples.map(stringToStream) };
+    return { name: src.name, description: src.description, samples: src.samples.map(sample => {
+            const s = new Readable();
+            s._read = () => {}; // redundant? see update below
+            s.push(sample);
+            s.push(null);
+            return s;
+    }) };
 }
 
 export async function makeQuicktypeOptions(

@@ -1,31 +1,31 @@
 export declare enum __DirectiveLocation {
-    QUERY = "QUERY",// Location adjacent to a query operation.
-    MUTATION = "MUTATION",// Location adjacent to a mutation operation.
-    SUBSCRIPTION = "SUBSCRIPTION",// Location adjacent to a subscription operation.
-    FIELD = "FIELD",// Location adjacent to a field.
-    FRAGMENT_DEFINITION = "FRAGMENT_DEFINITION",// Location adjacent to a fragment definition.
-    FRAGMENT_SPREAD = "FRAGMENT_SPREAD",// Location adjacent to a fragment spread.
-    INLINE_FRAGMENT = "INLINE_FRAGMENT",// Location adjacent to an inline fragment.
-    SCHEMA = "SCHEMA",// Location adjacent to a schema definition.
-    SCALAR = "SCALAR",// Location adjacent to a scalar definition.
-    OBJECT = "OBJECT",// Location adjacent to an object type definition.
-    FIELD_DEFINITION = "FIELD_DEFINITION",// Location adjacent to a field definition.
-    ARGUMENT_DEFINITION = "ARGUMENT_DEFINITION",// Location adjacent to an argument definition.
-    INTERFACE = "INTERFACE",// Location adjacent to an interface definition.
-    UNION = "UNION",// Location adjacent to a union definition.
-    ENUM = "ENUM",// Location adjacent to an enum definition.
-    ENUM_VALUE = "ENUM_VALUE",// Location adjacent to an enum value definition.
-    INPUT_OBJECT = "INPUT_OBJECT",// Location adjacent to an input object type definition.
+    QUERY = "QUERY",
+    MUTATION = "MUTATION",
+    SUBSCRIPTION = "SUBSCRIPTION",
+    FIELD = "FIELD",
+    FRAGMENT_DEFINITION = "FRAGMENT_DEFINITION",
+    FRAGMENT_SPREAD = "FRAGMENT_SPREAD",
+    INLINE_FRAGMENT = "INLINE_FRAGMENT",
+    SCHEMA = "SCHEMA",
+    SCALAR = "SCALAR",
+    OBJECT = "OBJECT",
+    FIELD_DEFINITION = "FIELD_DEFINITION",
+    ARGUMENT_DEFINITION = "ARGUMENT_DEFINITION",
+    INTERFACE = "INTERFACE",
+    UNION = "UNION",
+    ENUM = "ENUM",
+    ENUM_VALUE = "ENUM_VALUE",
+    INPUT_OBJECT = "INPUT_OBJECT",
     INPUT_FIELD_DEFINITION = "INPUT_FIELD_DEFINITION"
 }
 export declare enum TypeKind {
-    SCALAR = "SCALAR",// Indicates this type is a scalar.
-    OBJECT = "OBJECT",// Indicates this type is an object. `fields` and `interfaces` are valid fields.
-    INTERFACE = "INTERFACE",// Indicates this type is an interface. `fields` and `possibleTypes` are valid fields.
-    UNION = "UNION",// Indicates this type is a union. `possibleTypes` is a valid field.
-    ENUM = "ENUM",// Indicates this type is an enum. `enumValues` is a valid field.
-    INPUT_OBJECT = "INPUT_OBJECT",// Indicates this type is an input object. `inputFields` is a valid field.
-    LIST = "LIST",// Indicates this type is a list. `ofType` is a valid field.
+    SCALAR = "SCALAR",
+    OBJECT = "OBJECT",
+    INTERFACE = "INTERFACE",
+    UNION = "UNION",
+    ENUM = "ENUM",
+    INPUT_OBJECT = "INPUT_OBJECT",
+    LIST = "LIST",
     NON_NULL = "NON_NULL"
 }
 export type GraphQLSchema = {
